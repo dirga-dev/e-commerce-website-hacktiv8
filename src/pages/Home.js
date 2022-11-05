@@ -3,6 +3,7 @@ import '../App.css';
 import Products from "../components/Products";
 // import Hero from "../components/Hero";
 
+
 const Home = () => {
   return (
     <div>
@@ -16,8 +17,8 @@ const Home = () => {
         </p>
       </div>
       <div id="middle"><br /><br /><br />
-      </div>
-        <Products/>        
+        <Products />
+      </div>     
     </div>
   );
 }

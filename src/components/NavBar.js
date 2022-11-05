@@ -5,8 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
+import {useNavigate} from 'react-router';
+import { useSelector } from "react-redux";
 
 const NavBar = ({setToken}) => {
+  const navigate = useNavigate();
+
+  const {cartTotalQuantity} = useSelector(state => state.cart);
+
   const logoutHandler = () => {
     setToken("");
     localStorage.clear();
@@ -22,8 +28,8 @@ const NavBar = ({setToken}) => {
           <Nav className="me-auto">
             <NavLink to="/products" style={{ textDecoration: 'none' }} className="nav-item">Products</NavLink>
           </Nav>
-          <Button variant="success" style={{marginRight: "5px"}}>
-            <i className="fa fa-shopping-cart"></i> Cart (0)</Button>
+          <Button variant="success" style={{marginRight: "5px"}} onClick={() => navigate('/cart')}>
+            <i className="fa fa-shopping-cart"></i> Cart ({cartTotalQuantity})</Button>
           <Button variant="outline-secondary" onClick={() => logoutHandler()}>
             <i className="fa fa-sign-out"></i>Log out</Button>
         </Navbar.Collapse>
