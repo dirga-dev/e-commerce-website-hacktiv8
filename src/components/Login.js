@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import SubmitButton from "src/components/SubmitButton.js";
+import SubmitButton from "./SubmitButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authUser, saveToken, checkEmail, setPassword, authAdmin, resetError } from "src/features/userSlice.js";
+import { authUser, saveToken, checkEmail, setPassword, authAdmin, resetError } from "../features/userSlice.js";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
